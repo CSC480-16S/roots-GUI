@@ -8,6 +8,8 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../assets/js/login.js"></script>
 </head>
 
 <body>
@@ -22,21 +24,22 @@
             <div id="signup">
                 <h1>Sign Up for Free</h1>
 
-                <form action="/" method="post">
+                <form action="/" method="post" id="signup">
 
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
                                 First Name<span class="req">*</span>
                             </label>
-                            <input type="text" required autocomplete="off" />
+			<!--added name and id. Bad form otherwise. Follow best practice-->
+                            <input type="text" name="firstname" required autocomplete="off" />
                         </div>
 
                         <div class="field-wrap">
                             <label>
                                 Last Name<span class="req">*</span>
                             </label>
-                            <input type="text" required autocomplete="off" />
+                            <input type="text"  name="lastname" required autocomplete="off" />
                         </div>
                     </div>
 
@@ -44,20 +47,40 @@
                         <label>
                             Email Address<span class="req">*</span>
                         </label>
-                        <input type="email" required autocomplete="off" />
+                        <input type="email" name="email" required autocomplete="off" />
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Set A Password<span class="req">*</span>
                         </label>
-                        <input type="password" required autocomplete="off" />
+                        <input type="password" name="password" required autocomplete="off" />
                     </div>
-
-                    <button type="submit" class="button button-block" /> Get Started</button>
+			<div class="field-wrap">
+                        <label>
+                            Confirm Password<span class="req">*</span>
+                        </label>
+                        <input type="password" name="passwordconfirm" required autocomplete="off" />
+                    </div>
+                    <button type="submit" onclick="checkpassword()" class="button button-block" /> Get Started</button>
 
                 </form>
-
+			<!--Script for verifying the password boxes match and are equal, and that a password exists-->
+			<script type="text/javascript">
+				function checkpassword(){
+					var signupform = document.forms["signup"];
+					if(signupform.password.value != signupform.passwordconfirm.value){
+						alert('Password dont match',signupform.password);	
+						signupform.password.value = "";
+						signupform.passwordconfirm.value = "";
+						signupform.password.focus();
+						return false;
+					}
+					else{
+						return true;
+					}
+				}
+			</script>
             </div>
 
             <div id="login">
@@ -70,7 +93,7 @@
                             Email Address<span class="req">*</span>
                         </label>
                         <input type="email" required autocomplete="off" />
-                    </div>
+			  </div>
 
                     <div class="field-wrap">
                         <label>
@@ -91,12 +114,6 @@
         <!-- tab-content -->
 
     </div>
-    <!-- /form -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script src="../assets/js/login.js"></script>
-
-
-</body>
+    <!-- /form --></body>
 
 </html>
