@@ -7,9 +7,6 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../assets/js/login.js"></script>
-
 </head>
 
 <body>
@@ -58,12 +55,12 @@
                         <input name='email' type="email" required autocomplete="off"/>
                     </div>
 
-                    <div class="field-wrap">r
+                    <div class="field-wrap">
                         <label>
                             Set A Password<span class="req">*</span>
                         </label>
                         <input name='password' type="password" required autocomplete="off"/>
-                    </div>`
+                    </div>
                     <div class="field-wrap">
                         <label>
                             Confirm Password<span class="req">*</span>
@@ -91,7 +88,7 @@
 
 
                         }else if(signupform.password.value.search(pwregex)){
-                            alert('password mustb e between 8 and 128 characters, with one each of a lower and upper case character, a special character and a number');
+                            alert('Password must be between 8 and 128 characters, with one each of a lower and upper case character, a special character and a number.');
                             return false;
                         }else{
                             return true;
@@ -120,7 +117,7 @@
                         <input name='password' type="password" required autocomplete="off"/>
                     </div>
 
-                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+                    <p class="forgot"><a href="password_reset.html">Forgot Password?</a></p>
 
                     <button class="button button-block" /> Log In</button>
 
@@ -133,6 +130,8 @@
 
     </div>
     <!-- /form -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../assets/js/login.js"></script>
 
 </body>
 </html>
