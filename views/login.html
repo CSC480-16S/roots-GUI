@@ -12,8 +12,28 @@
 <body>
 
     <header>
-        <h1 class="header-logo">Roots</h1>
-     <!--  <h2 class= "header-signIn">Sign In</h2> -->
+        <!--   <h1  class="header-logo">Roots</h1>
+      <!--  <h2 class= "header-signIn">Sign In</h2> -->
+        <a href="login.html" class="header-logo">
+            <em>Roots</em>
+        </a>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <input type="button" value="Search">
+            </form>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Sign up</a></li>
+                <li><a href="/">Login</a></li>
+                <li><a href="mailto:rootsspammer@gmail.com">Contact Us</a></li>
+                <li><a href="#"> About </a></li>
+
+            </ul>
+        </nav>
+
     </header>
 
     <div class="form">
@@ -28,7 +48,7 @@
             <div id="signup">
                 <h1>Sign Up for Free</h1>
 
-                <form action="/" method="post">
+                <form action="/userSignup" method="post">
 
                     <div class="top-row">
                         <div class="field-wrap">
@@ -117,7 +137,7 @@
                         <input name='password' type="password" required autocomplete="off"/>
                     </div>
 
-                    <p class="forgot"><a href="password_reset.html">Forgot Password?</a></p>
+                    <p class="forgot"><a href="login_help.html">Forgot Password?</a></p>
 
                     <button class="button button-block" /> Log In</button>
 
