@@ -42,14 +42,11 @@
             <li class="tab"><a href="#login">Log In</a></li>
         </ul>
 
-
-
         <div class="tab-content">
             <div id="signup">
                 <h1>Sign Up for Free</h1>
 
-                <form action="/userSignup" method="post">
-
+                <form action="/userSignup" name="signup" method="post">
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
@@ -88,24 +85,23 @@
                         <input type="password" name="passwordconfirm" required autocomplete="off" />
                     </div>
 
-                    <button type="submit" class="button button-block" /> Get Started</button>
+                    <button type="submit" class="button button-block" onclick="checksignup()"/> Get Started</button>
 
                 </form>
                 <!--Script for verifying the password boxes match and are equal, and that a password exists-->
                 <script type="text/javascript">
                     function checksignup(){
                         var signupform = document.forms["signup"];
-                        var pwregex =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,128}$/;
+                        var pwregex =  (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
                         if(signupform.password.value != signupform.passwordconfirm.value){
-                            alert('Password dont match');
+                            alert('Passwords do not match.');
                             signupform.password.value = "";
                             signupform.passwordconfirm.value = "";
                             signupform.password.focus();
                             return false;
-                        }else if(signupform.firstname.value.length>32 || signupform.lastname.value.length>32){
+                        }else if(signupform.firstname.value.length>256 || signupform.lastname.value.length>256){
                             alert('name is too long');
                             return false;
-
 
                         }else if(signupform.password.value.search(pwregex)){
                             alert('Password must be between 8 and 128 characters, with one each of a lower and upper case character, a special character and a number.');
