@@ -19,7 +19,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #1ab188;
+    color: #31f0bc;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -101,10 +101,18 @@ header {
     /*background:#f4f1cc;*/
     background: rgba(244, 241, 204, 0.3);
     /*border-bottom: 2px solid #00cc00;*/
-    padding: 35px 0;
+    padding: 25px 0;
     width: 100%;
     font-family: 'Lato', sans-serif;
 }
+
+footer{
+    background: rgba(244, 241, 204, 0.3);
+    padding: 25px 0;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
 label {
     position: absolute;
     -webkit-transform: translateY(6px);
@@ -122,6 +130,7 @@ label .req {
     margin: 2px;
     color: #f16345;
 }
+
 
 label.active {
     -webkit-transform: translateY(50px);
