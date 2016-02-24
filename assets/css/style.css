@@ -98,8 +98,9 @@ h1 {
 
 header {
 
-    background:#f4f1cc;
-    border-bottom: 2px solid #00cc00;
+    /*background:#f4f1cc;*/
+    background: rgba(244, 241, 204, 0.3);
+    /*border-bottom: 2px solid #00cc00;*/
     padding: 35px 0;
     width: 100%;
     font-family: 'Lato', sans-serif;
@@ -228,10 +229,6 @@ h2 {
 /*    text-align: center;*/
     font-weight: 300;
     margin: 0 0 0px;
-}
-
-.profile-page {
-    
 }
 
 .profile-page-form {
