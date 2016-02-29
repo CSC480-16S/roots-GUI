@@ -27,7 +27,7 @@
             <div id="signup">
                 <h1>Sign Up for Free</h1>
 
-                <form action="prof" name="signup" method="post">
+                <form action="{{action}}" name="signup" method="post">
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
@@ -96,7 +96,7 @@
             <div id="login">
                 <h1>Welcome Back!</h1>
 
-                <form action="/" method="post">
+                <form action="{{action2}}" method="post">
 
                     <div class="field-wrap">
                         <label>
@@ -112,7 +112,7 @@
                         <input name='password' type="password" required autocomplete="off"/>
                     </div>
 
-                    <p class="forgot"><a href="login_help.html">Forgot Password?</a></p>
+                    <p class="forgot"><a href="sendReset.html">Forgot Password?</a></p>
 
                     <button class="button button-block" /> Log In</button>
 
