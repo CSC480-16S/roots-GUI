@@ -10,11 +10,8 @@ body {
     /*background: #f4f1cc;*/
     font-family: 'Titillium Web', sans-serif;
     color: #403324;
-    background-image: url("../images/Tree.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    
-    
 }
 
 a {
@@ -115,6 +112,8 @@ header {
 footer{
     background: rgba(244, 241, 204, 0);
     padding: 25px 0;
+    padding-right: 25px;
+    margin-bottom: 45px;
     width: 100%;
     font-family: 'Lato', sans-serif;
 }
@@ -176,6 +175,25 @@ input:focus, textarea:focus {
 textarea {
     border: 1px solid #a0b3b0;
     resize: vertical;
+}
+
+div.aboutbackground{
+    margin: auto;
+    background-color: #a3967b;
+    width: 357px;
+    hight: 240px;
+    opacity: 0.9;
+}
+div.aboutbackground p{
+    margin: 5%;
+    font-style: normal;
+    font-size: 20px;
+    color: #ECE5D7;
+}
+div.about{
+    text-align: center;
+    font-size: 25px;
+    color: #ECE5D7;
 }
 
 .field-wrap {
