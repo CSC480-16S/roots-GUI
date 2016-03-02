@@ -141,7 +141,7 @@ label {
     font-size: 22px;
 }
 
-label .req {
+label.req {
     margin: 2px;
     color: #f16345;
 }
