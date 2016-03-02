@@ -34,9 +34,13 @@ a:hover {
     margin-left: 10%;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    overflow:auto;
     
 }
-
+.wideForm{
+    max-width: 900px;
+    margin: 75px auto;
+}
 .tab-group {
     list-style: none;
     padding: 0;
@@ -81,12 +85,12 @@ a:hover {
 h1 {
     text-align: left;
     font-weight: 400;
-    margin: 0 40px;
+    /*margin: 0 40px;*/
     color: #403324;
 }
 
 h3{
-    font-weight:600
+    font-weight:600;
     margin: 0 40px;
     color: #403324
 }
@@ -147,9 +151,9 @@ label .req {
 
 label.active {
     -webkit-transform: translateY(50px);
-    transform: translateY(50px);
+    transform: translateY(43px);
     left: 2px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 label.active .req {
@@ -157,7 +161,7 @@ label.active .req {
 }
 
 label.highlight {
-    color: #ece5d7;
+    color: #403324;
 }
 
 input, textarea, select {
@@ -242,6 +246,9 @@ div.about{
     border-radius: 0;
     padding: 15px 0;
     font-size: 2rem;
+
+    margin:0 auto;
+
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
@@ -259,6 +266,10 @@ div.about{
 .button-block {
     display: block;
     width: 100%;
+    clear: both;
+}
+#wideButton{
+    max-width: 500px;
 }
 
 .forgot {
@@ -269,17 +280,19 @@ div.about{
 h2 {
 /*    text-align: center;*/
     font-weight: 300;
-    margin: 0 0 0px;
-    font-family: 'Roboto', sans-serif;
+    margin: 0 0px;
+
 }
 
 p {
     font-family: 'Roboto', sans-serif;
     margin: 0 40px;
-    font-weight: 100px;
+    font-weight: 100;
     line-height: 150%
 }
-
+input{
+    font-family: 'Andada', sans-serif;
+}
 .profile-page-form {
     background: #f4f1cc;
     padding: 40px;
@@ -332,4 +345,28 @@ nav li {
 
 nav a {
     padding: 15px 10px;
+}
+
+
+.rightForm{
+    width: 400px;
+    float: right;
+}
+.leftForm{
+    width: 400px;;
+    float: left;
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .wideForm{
+        max-width: 500px;
+        min-width: 400px;
+    }
+    .leftForm {
+        float: none;
+    }
+    .rightForm{
+        float: none;
+    }
 }
