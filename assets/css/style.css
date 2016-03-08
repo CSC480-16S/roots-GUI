@@ -8,8 +8,9 @@ html {
 
 body {
     /*background: #ece5d7;*/
-    font-family: 'Andada', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #403324;
+    /*background-image: url("../images/overlook.jpg");*/
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -30,7 +31,6 @@ a:hover {
     padding: 40px;
     max-width: 500px;
     min-width: 400px;
-    margin: 75px;
     margin-left: 10%;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -39,7 +39,7 @@ a:hover {
 }
 .wideForm{
     max-width: 900px;
-    margin: 75px auto;
+    margin: 0 auto;
 }
 .tab-group {
     list-style: none;
@@ -230,12 +230,13 @@ div.about{
 
 .search{
     float: right;
-    padding-top: 10px;
-    padding-right: 10px;
-    box-shadow:10px 10px 5px #aaaaaa;;
+    padding-right: 22px;
+    margin-right: 25px;
+    box-shadow:3px 3px 5px #aaaaaa;
 
 
 }
+
 
 
 .button {
@@ -281,6 +282,11 @@ h2 {
 
 }
 
+#container {
+    width: 600px;
+    margin: 0 auto;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
     /*margin: 0 40px;*/
@@ -288,7 +294,7 @@ p {
     line-height: 150%
 }
 input{
-    font-family: 'Andada', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .profile-page-form {
     background: #f4f1cc;
