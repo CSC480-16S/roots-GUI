@@ -28,51 +28,49 @@
         </nav>
     </header>
 
-
+<div class="window">
     <div class="sidebar">
         <div id="Profile Info">
             <!--<h1>Enter a new family member!</h1>-->
             <figure class="profile">
-                <img src="">
+                <img >
             </figure>
             <form action="/updateProfile" method="post">
 
-                <div class="top-row">
-                    <div class="field-wrap">
-                        <label>
-                            First Name: {{firstName}}<span class="req">*</span>
-                        </label>
 
-                        <input name='firstName' type="text" required autocomplete="off" ng-model="firstName"/>
-                    </div>
 
-                    <div class="field-wrap">
-                        <label>
-                            Last Name {{lastName}}<span class="req">*</span>
-                        </label>
-                        <input name='lastName' type="text" required autocomplete="off" ng-model="lastName"/>
-                    </div>
+                <div class="field-wrap">
+                    <!--<label>Birth State{{birthState}}<span class="req">*</span></label>-->
+                    <label>
+                        First Name: {{firstName}}<span class="req">*</span>
+                    </label>
+                    <input name='firstName' type="text" required autocomplete="off" ng-model="firstName" />
+                </div>
+                <div class="field-wrap">
+                    <!--<label>Birth State{{birthState}}<span class="req">*</span></label>-->
+                    <label>
+                        Last Name: {{lastName}}<span class="req">*</span>
+                    </label>
+                    <input name='lastName' type="text" required autocomplete="off" ng-model="lastName" />
                 </div>
 
-                <div class="top-row">
-                    <h2>Date of Birth</h2>
-                    <div class="field-wrap">
-                        <label><span class="req"></span></label>
-                        <input name='dateOfBirth' placeholder="mm/dd/yyyy" type="date" value={{dateOfBirth}} required autocomplete="off"/>
-                    </div>
+                <div class="field-wrap">
+                    <label><span class="req"></span></label>
+                    <select name='gender' required>
+                        <option value="{{gender}}" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="trans">Transgender</option>
+                        <option value="none">Prefer No Label</option>
+                        <option value="diffent">Prefer Different Label</option>
+                        <option value="nodisclose">Prefer Not to Disclose</option>
+                    </select>
+                </div>
 
-                    <div class="field-wrap">
-                        <label><span class="req"></span></label>
-                        <select name='gender' required>
-                            <option value="{{gender}}" disabled selected>Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="trans">Transgender</option>
-                            <option value="none">Prefer No Label</option>
-                            <option value="diffent">Prefer Different Label</option>
-                            <option value="nodisclose">Prefer Not to Disclose</option>
-                        </select>
-                    </div>
+                <div class="field-wrap">
+                    <h2>Date of Birth</h2>
+                    <label><span class="req"></span></label>
+                    <input name='dateOfBirth' placeholder="mm/dd/yyyy" type="date" value={{dateOfBirth}} required autocomplete="off"/>
                 </div>
 
                 <div class="field-wrap">
@@ -126,6 +124,7 @@
 
 
     </div>
+    </div>
 
 
     <!-- Hamburger Menu -->
@@ -167,7 +166,8 @@
         </nav>
     </footer>
 <script>
-//Hhere is the controller that will display information of the node profile
+
+//Here is the controller that will display information of the node profile
 // Node is assumed to be the node that is selected
 // NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
 //
@@ -188,6 +188,7 @@
                 $scope.node.children = [""];
         });
 </script>
+
 <!--
 THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH IT WHAT YOU WILLL
 
