@@ -1,48 +1,35 @@
 <h1>Sign Up for Free</h1>
 <form action="{{action}}" name="signup" method="post">
     <div class="top-row">
-        <div class="field-wrap">
-            <label>
-                First Name<span class="req">*</span>
-            </label>
 
-            <input name='firstName' type="text" required autocomplete="off"/>
+        <div class="field-wrap">
+            <label>First Name<span class="req">*</span></label>
+            <input name='firstName' type="text" required autocomplete="off" />
         </div>
 
         <div class="field-wrap">
-            <label>
-                Last Name<span class="req">*</span>
-            </label>
-            <input name='lastName' type="text" required autocomplete="off"/>
+            <label>Last Name<span class="req">*</span></label>
+            <input name='lastName' type="text" required autocomplete="off" />
         </div>
     </div>
 
     <div class="field-wrap">
-        <label>
-            Email Address<span class="req">*</span>
-        </label>
-        <!--<input name='email' type="email" value="{{username}}" required autocomplete="off"/>-->
-        <input name='email' type="email" required autocomplete="off"/>
+        <label>Email Address<span class="req">*</span></label>
+        <input name='email' type="email" required autocomplete="off" />
     </div>
 
     <div class="field-wrap">
-        <label>
-            Set A Password<span class="req">*</span>
-        </label>
-        <input name='password' type="password" required autocomplete="off"/>
+        <label>Set A Password<span class="req">*</span></label>
+        <input name='password' type="password" required autocomplete="off" />
     </div>
     <div class="field-wrap">
-        <label>
-            Confirm Password<span class="req">*</span>
-        </label>
-        <input type="password" name="passwordconfirm" required autocomplete="off"/>
+        <label>Confirm Password<span class="req">*</span></label>
+        <input type="password" name="passwordconfirm" required autocomplete="off" />
     </div>
 
-    <button type="submit" class="button button-block" onclick="checksignup()"/>
-    Get Started</button>
+    <button type="submit" class="button button-block" onclick="checksignup()" /> Get Started</button>
 
 </form>
-<!--Script for verifying the password boxes match and are equal, and that a password exists-->
 <script type="text/javascript">
     function checksignup() {
         var signupform = document.forms["signup"];
