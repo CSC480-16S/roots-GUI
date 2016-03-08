@@ -14,8 +14,17 @@
 
     <header>
         <a href="login.html" class="header-logo">
-            <img id="logo-img" src="../assets/images/logo.png">
+            <img id="logo-img" src="../assets/images/logo2.png">
         </a>
+        
+        <!-- Search Bar on the Header --> 
+        <div class="search">
+            <form>
+                <input type="search" name="treeSearch" placeholder="Search..." value={{treeSearch}}>
+                <!--<input type="search" name="treeSearch" value={{treeSearch}} placeholder="Search...">-->
+                <!--<input type="text" name="search" placeholder="Search...">-->
+            </form>
+        </div>
     </header>
 
     <div class="form">
@@ -26,11 +35,11 @@
 
         <div class="tab-content">
             <div id="signup">
-                <h1>Sign Up for Free</h1> 
+                <h1>Sign Up for Free</h1>
+
                 <form action="{{action}}" name="signup" method="post">
-
                     <div class="top-row">
-
+                        <div class="field-wrap">
                             <label>
                                 First Name<span class="req">*</span>
                             </label>
@@ -67,7 +76,6 @@
                         <input type="password" name="passwordconfirm" required autocomplete="off" />
                     </div>
 
-
                     <button type="submit" class="button button-block" onclick="checksignup()" />Get Started</button>
 
                 </form>
@@ -85,14 +93,7 @@
                         } else if (signupform.firstname.value.length > 256 || signupform.lastname.value.length > 256) {
                             alert('name is too long');
                             return false;
-
-
-			}else if(signupform.password.value.length<=8){
-				alert('password is too short, minimum 8 characters')
-				return false;
-			
-                        }else if(signupform.password.value.search(pwregex)){
-
+                        } else if (signupform.password.value.search(pwregex)) {
                             alert('Password must be between 8 and 128 characters, with one each of a lower and upper case character, a special character and a number.');
                             return false;
                         } else {
