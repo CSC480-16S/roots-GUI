@@ -72,6 +72,54 @@
             </ul>
         </nav>
     </footer>
+<script>
+//Hhere is the controller that will display information of the node profile 
+// Node is assumed to be the node that is selected
+// NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
+//
+        angular.module("treeViewer",[])
+                .controller("nodeProfileController",function($scope){
+                $scope.node = {}
+                $scope.node.firstName = "";
+                $scope.node.middleName = "";
+                $scope.node.lastName = "";
+                $scope.node.father = "";
+                $scope.node.mother = "";
+                $scope.node.birth = "";
+                $scope.node.death = "";
+                $scope.node.gender = "";
+                $scope.node.birthLocation = "";
+                $scope.node.deathLocation = "";
+                $scope.node.bio = "";
+                $scope.node.children = [""];
+        });
+</script>
+<!--
+THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH IT WHAT YOU WILLL
+
+<div ng-app="treeViewer">
+        <div ng-controller="nodeProfileController">
+                <div class="nodeProfileDisplay">
+                <p>{{node.firstName}} {{node.middleName}} {{node.lastName}}</p>
+                <p>{{node.gender}}</p>
+                <p>Born: {{node.birth}} Died: {{node.death}}</p>
+                <p>Born in: {{node.birthLocation}}</p>
+                <p>Died in: {{node.DeathLocation}}</p>
+                <p>Father: {{node.father}}</p>
+                <p>Mother: {{node.mother}}</p>
+                <p>Children: <div ng-repeat="node.children">{{node.children}}</div>    
+                <p>Biography: {{node.bio}}</p>
+                </div>  
+        </div>
+
+</div>
+
+
+
+
+-->
 
 </body>
+
+
 </html>
