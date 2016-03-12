@@ -11,22 +11,36 @@
 
 <body>
     <header>
-        <a href="login.html" class="header-logo">
+        <ul>
+            <li><a href="login.html" class="header-logo">
             <img id="logo-img" src="../assets/images/logo.png">
-        </a>
-
-        <div class="search">
+            </a></li>
+            <li><div class="search">
             <form>
                 <input type="search" name="treeSearch" placeholder="Search..." value={{treeSearch}}>
-                <!--<input type="search" name="treeSearch" value={{treeSearch}} placeholder="Search...">-->
-                <!--<input type="text" name="search" placeholder="Search...">-->
             </form>
-        </div>
+            </div></li>
 
-        <nav>
-           
-        </nav>
+            <li class="dropdown">
+                <button onclick="myfunction()" class="hamburger hamburger--spring">
+                <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+                </div>
+                </button>
+                <div class="dropdown-content" id="drop">
+                    <a href="#">Log Out</a>
+                    <a href="#">Help</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">About</a>
+                </div>
+
+            </li>
+
+        </ul>
+
+
     </header>
+
 
 <div class="window">
     <div class="sidebar">

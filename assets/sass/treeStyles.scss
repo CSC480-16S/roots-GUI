@@ -47,7 +47,7 @@ a:hover {
 }
 
 .treeWindow {
-  width:75%;
+  width:74%;
   height: 100%;
   //overflow:auto;
   background: grey;
@@ -117,38 +117,8 @@ h3{
   color: #403324
 }
 
-.header-logo {
-
-  text-align: left;
-  padding-left: 50px;
-  /* font-size: 3.5em;*/
-
-}
-
-#logo-img {
-  width:15%;
-}
 
 
-header {
-
-  /*background:#f4f1cc;*/
-  background: rgba(244, 241, 204, 0);
-  /*border-bottom: 2px solid #00cc00;*/
-  padding: 50px 0;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-}
-
-footer{
-  background: rgba(244, 241, 204, 0);
-  padding: 25px 0;
-  padding-right: 25px;
-  margin-bottom: 45px;
-  width: 100%;
-  font-family: 'Andada', sans-serif;
-  color: #403324;
-}
 
 label {
   position: absolute;
@@ -191,7 +161,6 @@ input, textarea, select {
   height: 100%;
   padding: 5px 10px;
   background: none;
-  background-image: none;
   border: 1px solid #8ac08f;
   color: #403324;
   border-radius: 0;
@@ -209,24 +178,7 @@ textarea {
   resize: vertical;
 }
 
-div.aboutbackground{
-  margin: auto;
-  background-color: #a3967b;
-  width: 357px;
-  height: 240px;
-  opacity: 0.9;
-}
-div.aboutbackground p{
-  margin: 5%;
-  font-style: normal;
-  font-size: 20px;
-  color: $light;
-}
-div.about{
-  text-align: center;
-  font-size: 25px;
-  color: $light;
-}
+
 
 .field-wrap {
   position: relative;
@@ -249,15 +201,167 @@ div.about{
   margin: 0;
 }
 
+header {
 
-.search{
-  float: right;
-  padding-right: 22px;
-  margin-right: 25px;
-  box-shadow:3px 3px 5px #aaaaaa;
+  background: rgba(244, 241, 204, 0);
+  padding-top: 25px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
 
+.header-logo {
+
+  text-align: left;
+  padding-left: 50px;
+
+  /* font-size: 3.5em;*/
 
 }
+
+
+ul{
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li{
+  float: left;
+  display: inline-block;
+}
+
+.dropdown {
+  display: inline-block;
+  float: right;
+  margin-right: 10%;
+}
+
+.dropdown-content {
+  display: none;
+  right: 10%;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  border: 1px solid #8ac08f;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 14px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+
+
+#logo-img {
+  width:35%;
+
+}
+
+.search{
+  padding-right: 20px;
+  width: 400px;
+  top: 7%;
+  right: 30%;
+  box-shadow:3px 3px 5px #aaaaaa;
+  position: absolute;
+
+}
+
+.hamburger{
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter, -webkit-filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: #8ac08f;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.hamburger:hover{
+  opacity: 0.8;
+}
+
+.hamburger-box{
+  width: 40px;
+  height: 24px;
+  display: inline-table;
+  position: relative;
+}
+
+
+.hamburger-inner{
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: -webkit-transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; }
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block; }
+.hamburger-inner::before {
+  top: -10px; }
+.hamburger-inner::after {
+  bottom: -10px; }
+
+/*animation*/
+
+.hamburger--spring .hamburger-inner {
+  top:-3px;
+  transition: background-color 0s 0.15s linear; }
+.hamburger--spring .hamburger-inner::before {
+  top: 10px;
+  transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--spring .hamburger-inner::after {
+  top: 20px;
+  transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spring.is-active .hamburger-inner {
+  transition-delay: 0.32s;
+  background-color: transparent; }
+.hamburger--spring.is-active .hamburger-inner::before {
+  top: 0;
+  transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
+  transform: translate3d(0, 10px, 0) rotate(45deg); }
+.hamburger--spring.is-active .hamburger-inner::after {
+  top: 0;
+  transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s 0.32s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: translate3d(0, 10px, 0) rotate(-45deg);
+  transform: translate3d(0, 10px, 0) rotate(-45deg); }
+
 
 
 
@@ -318,60 +422,6 @@ p {
 input{
   font-family: 'Roboto', sans-serif;
 }
-.profile-page-form {
-  background: #f4f1cc;
-  padding: 40px;
-  max-width: 50%;
-  margin: 50px auto;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-}
-
-.profile-top-row > div{
-  float: left;
-  width: 30%;
-  margin-right: 5%;
-}
-
-.profile-top-row > div:last-child {
-  margin: 0;
-}
-
-.password-help {
-  padding: 40px;
-  background-color: #f4f1cc ;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-nav {
-  float: right;
-  text-align: right;
-  margin-right: 2%;
-
-}
-
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding-top: 8px;
-}
-
-
-nav li {
-  display: inline-block;
-  padding: 0 8px;
-  text-transform: uppercase;
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-
-nav a {
-  padding: 15px 10px;
-}
-
 
 
 
