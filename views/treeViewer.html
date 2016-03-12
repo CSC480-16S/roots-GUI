@@ -22,12 +22,12 @@
             </div></li>
 
             <li class="dropdown">
-                <button onclick="myfunction()" class="hamburger hamburger--spring">
+                <button onclick ="myFunction()" class="hamburger hamburger--spring">
                 <div class="hamburger-box">
                 <div class="hamburger-inner"></div>
                 </div>
                 </button>
-                <div class="dropdown-content" id="drop">
+                <div class="dropdown-content" id="Dropdown">
                     <a href="#">Log Out</a>
                     <a href="#">Help</a>
                     <a href="#">Contact Us</a>
@@ -35,6 +35,11 @@
                 </div>
 
             </li>
+            <script>
+                function myFunction() {
+                    document.getElementById("Dropdown").classList.toggle("show");
+                }
+            </script>
 
         </ul>
 

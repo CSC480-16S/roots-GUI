@@ -201,7 +201,7 @@ li {
   display: block;
   text-align: center; }
 
-.dropdown:hover .dropdown-content {
+.show {
   display: block; }
 
 #logo-img {
@@ -226,7 +226,8 @@ li {
   color: inherit;
   text-transform: none;
   background-color: #8ac08f;
-  border: 0;
+  border: none;
+  outline: none;
   margin: 0;
   overflow: visible; }
 
