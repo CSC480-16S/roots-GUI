@@ -6,7 +6,6 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/treeStyles.css">
-
 </head>
 
 <body>
@@ -46,7 +45,7 @@
 
     </header>
 
-
+<body>
 <div class="window">
     <div class="sidebar">
         <div id="Profile Info">
@@ -117,16 +116,6 @@
                     <input name='currentState' type="text" maxlength="64" value="{{currentState}}" required autocomplete="off" />
                 </div>
 
- <!--               <div class="field-wrap">
-                    <label>Current Country<span class="req">*</span> </label>
-                    <input name='currentCountry' type="text" maxlength="128" value="{{currentCountry}}" required autocomplete="off" />
-                </div>
-
-                <h2>Short Personal Biography</h2>
-                <div class="field-wrap">
-                    <textarea id="personalbio" onkeyup="counter(this, this.maxLength)" maxlength="5000" class="textareaclass" rows="4">{{personalbio}}</textarea>
-                    <div align="right" id="num">5000 characters remaining</div>
-                </div>-->
                 <script>
                     function counter(txtarea, l){
                         var len = $(txtarea).val().length;
@@ -145,34 +134,6 @@
     </div>
     </div>
 
-
-    <!-- Hamburger Menu -->
-    <script>
-        // Look for .hamburger
-        var hamburger = document.querySelector(".hamburger");
-
-        //statement that checks to see if page can load css files
-        /*if (document.querySelector(".hamburger")== null){
-         alert("I am an alert box!");
-         } else { alert("we're good'!");} */
-
-
-
-        // On click
-        hamburger.addEventListener("click", function() {
-            // Toggle class "is-active"
-            hamburger.classList.toggle("is-active");
-            // Do something else, like open/close menu
-            hamburger.classList.toggle("hamburger--slider");
-        });
-    </script>
-    <!--<div align="right">
-        <button class=" hamburger hamburger&#45;&#45;slider is-active" type="button">
-            <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-            </span>
-        </button>
-    </div>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 
@@ -232,6 +193,7 @@ THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH 
 
 
 -->
+
 
 </body>
 </html>
