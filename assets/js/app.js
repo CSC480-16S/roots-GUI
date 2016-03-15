@@ -1,11 +1,11 @@
 // views/app.js
 var treeViewer = angular.module('treeViewer', []);
 
-function mainController($scope, $http) {
+treeViewer.controller("mainController", function($scope, $http){
     $scope.formData = {};
 
-    // when landing on the page, get all family members and display them
-    $http.get('/api/member')
+    //when landing on the page, get all family members and display them
+    $http.get('/populateTree')
         .success(function(data) {
             $scope.member = data;
             console.log(data);
@@ -16,7 +16,7 @@ function mainController($scope, $http) {
 
     // when submitting the add form, send the text to the node API
     $scope.createMember = function() {
-        $http.post('/api/member', $scope.formData)
+        $http.post('/populateTree', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 $scope.member = data;
@@ -29,7 +29,7 @@ function mainController($scope, $http) {
 
     // delete a todo after checking it
     $scope.deleteMember = function(id) {
-        $http.delete('/api/member/' + id)
+        $http.delete('/populateTree' + id)
             .success(function(data) {
                 $scope.member = data;
                 console.log(data);
@@ -38,23 +38,22 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
-         angular.module("treeViewer",[])
-                .controller("nodeProfileController",function($scope){
-                $scope.node = {}
-                $scope.node.firstName = "";
-                $scope.node.middleName = "";
-                $scope.node.lastName = "";
-                $scope.node.father = "";
-                $scope.node.mother = "";
-                $scope.node.birth = "";
-                $scope.node.death = "";
-                $scope.node.gender = "";
-                $scope.node.birthLocation = "";
-                $scope.node.deathLocation = "";
-                $scope.node.bio = "";
-                $scope.node.children = [""];
-                        
-        });
-   
-    
+
+    treeViewer.controller('nodeProfileController',function($scope){
+        $scope.node = {};
+        $scope.node.firstName = "David";
+        $scope.node.middleName = "";
+        $scope.node.lastName = "Swift";
+        $scope.node.father = "";
+        $scope.node.mother = "";
+        $scope.node.dateOfBirth = "02/13/1988";
+        $scope.node.death = "";
+        $scope.node.gender = "Dude";
+        $scope.node.birthLocation = "";
+        $scope.node.birthCity = "Rochester";
+        $scope.node.birthState = "New York";
+        $scope.node.deathLocation = "";
+        $scope.node.bio = "He lived and then he died.";
+        $scope.node.children = [""];
+    });
 }

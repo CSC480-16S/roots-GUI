@@ -39,9 +39,17 @@
                 function myFunction() {
                     document.getElementById("Dropdown").classList.toggle("show");
                 }
+                window.onclick = function(e) {
+                    if (!e.target.matches('.hamburger')) {
 
-                function anotherFunction() {
-                    document.getElementById("Dropdown").classList.remove("show");
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        for (var d = 0; d < dropdowns.length; d++) {
+                            var openDropdown = dropdowns[d];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
                 }
             </script>
     </header>
@@ -160,10 +168,18 @@
         </div>
     </div>
 
- <!--   <div class="treeWindow">
-        <p>content</p>
-
-    </div>-->
+    <!--<div class="treeWindow">-->
+        <!--<p>-->
+		<!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
+		<!--<g>-->
+		<!--<rect ng-repeat="rect in node"-->
+			<!--ng-attr-rx="{{rectangle.x}}"-->
+			<!--ng-attr-ry="{{rectangle.y}}">-->
+		<!--<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>-->
+		<!--</rect>-->
+		<!--</g>-->
+	<!--</p>-->
+    <!--</div>-->
     </div>
 
 <a href=""></a>
@@ -181,25 +197,23 @@
 //Here is the controller that will display information of the node profile
 // Node is assumed to be the node that is selected
 // NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
-
-
-
+//
         angular.module("treeViewer",[])
                 .controller("nodeProfileController",function($scope){
                 $scope.node = {};
-                $scope.node.firstName = "";
+                $scope.node.firstName = "David";
                 $scope.node.middleName = "";
-                $scope.node.lastName = "";
+                $scope.node.lastName = "Swift";
                 $scope.node.father = "";
                 $scope.node.mother = "";
-                $scope.node.dateOfBirth = "";
+                $scope.node.dateOfBirth = "02/13/1988";
                 $scope.node.death = "";
-                $scope.node.gender = "";
+                $scope.node.gender = "Dude";
                 $scope.node.birthLocation = "";
-                $scope.node.birthCity = "";
-                $scope.node.birthState = "";
+                $scope.node.birthCity = "Rochester";
+                $scope.node.birthState = "New York";
                 $scope.node.deathLocation = "";
-                $scope.node.bio = "";
+                $scope.node.bio = "He lived and then he died.";
                 $scope.node.children = [""];
         });
 </script>
@@ -223,6 +237,10 @@ THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH 
         </div>
 
 </div>
+
+
+
+
 -->
 
 
