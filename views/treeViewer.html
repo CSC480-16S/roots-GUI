@@ -111,7 +111,7 @@
                         <option value="diffent">Prefer Different Label</option>
                         <option value="nodisclose">Prefer Not to Disclose</option>
                     </select>
-                </div>
+                </div>-->
 
                <!-- <div class="field-wrap">
                     <h2>Date of Birth</h2>
@@ -142,7 +142,7 @@
                 <div class="field-wrap">
                     &lt;!&ndash;<label>Current State<span class="req">*</span></label>&ndash;&gt;
                     <input name='currentState' type="text" maxlength="64" value="{{currentState}}" required autocomplete="off" />
-                </div>
+                </div>-->
 
                 <script>
                     function counter(txtarea, l){
@@ -160,18 +160,18 @@
         </div>
     </div>
 
-    <div class="treeWindow">
-        <p>
-		<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">
-		<g>	
-		<rect ng-repeat="rect in node"
-			ng-attr-rx="{{rectangle.x}}"
-			ng-attr-ry="{{rectangle.y}}">
-		<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>
-		</rect>
-		</g>
-	</p>
-    </div>
+    <!--<div class="treeWindow">-->
+        <!--<p>-->
+		<!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
+		<!--<g>-->
+		<!--<rect ng-repeat="rect in node"-->
+			<!--ng-attr-rx="{{rectangle.x}}"-->
+			<!--ng-attr-ry="{{rectangle.y}}">-->
+		<!--<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>-->
+		<!--</rect>-->
+		<!--</g>-->
+	<!--</p>-->
+    <!--</div>-->
     </div>
 
 <a href=""></a>
@@ -181,6 +181,34 @@
     <script src="../assets/js/login.js"></script>
 
     <!-- Bottom of the page Footer content-->
+
+
+
+<script>
+
+//Here is the controller that will display information of the node profile
+// Node is assumed to be the node that is selected
+// NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
+//
+        angular.module("treeViewer",[])
+                .controller("nodeProfileController",function($scope){
+                $scope.node = {};
+                $scope.node.firstName = "David";
+                $scope.node.middleName = "";
+                $scope.node.lastName = "Swift";
+                $scope.node.father = "";
+                $scope.node.mother = "";
+                $scope.node.dateOfBirth = "02/13/1988";
+                $scope.node.death = "";
+                $scope.node.gender = "Dude";
+                $scope.node.birthLocation = "";
+                $scope.node.birthCity = "Rochester";
+                $scope.node.birthState = "New York";
+                $scope.node.deathLocation = "";
+                $scope.node.bio = "He lived and then he died.";
+                $scope.node.children = [""];
+        });
+</script>
 
 <!--
 THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH IT WHAT YOU WILL
@@ -205,6 +233,7 @@ THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH 
 
 
 
+-->
 
 
 </body>
