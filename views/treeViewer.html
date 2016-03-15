@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="treeViewer">
 <head>
     <meta charset="UTF-8">
     <title>Tree Viewer</title>
@@ -10,21 +10,22 @@
 
 <body>
     <header>
-        <ul>
-            <li><a href="login.html" class="header-logo">
-            <img id="logo-img" src="../assets/images/logo.png">
-            </a></li>
-            <li><div class="search">
+            <a href="login.html" class="header-logo">
+                <img id="logo-img" src="../assets/images/logo.png">
+            </a>
+
+           <div class="search">
             <form>
                 <input type="search" name="treeSearch" placeholder="Search..." value={{treeSearch}}>
             </form>
-            </div></li>
+            </div>
 
-            <li class="dropdown">
-                <button onclick ="myFunction()" class="hamburger hamburger--spring">
-                <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-                </div>
+
+        <div class="dropdown">
+                <button onclick ="myFunction()"  class="hamburger hamburger--spring">
+                    <div class="hamburger-box">
+                     <div class="hamburger-inner"></div>
+                    </div>
                 </button>
                 <div class="dropdown-content" id="Dropdown">
                     <a href="#">Log Out</a>
@@ -32,24 +33,24 @@
                     <a href="#">Contact Us</a>
                     <a href="#">About</a>
                 </div>
+        </div>
 
-            </li>
             <script>
                 function myFunction() {
                     document.getElementById("Dropdown").classList.toggle("show");
                 }
+
+                function anotherFunction() {
+                    document.getElementById("Dropdown").classList.remove("show");
+                }
             </script>
-
-        </ul>
-
-
     </header>
 
-<body>
+
 <div class="window">
     <div class="sidebar">
         <div id="Profile Info">
-            <!--<h1>Enter a new family member!</h1>-->
+
             <figure class="profile">
                 <img >
             </figure>
@@ -57,19 +58,46 @@
 
 
 
-                <div class="field-wrap">
-                    <!--<label>Birth State{{birthState}}<span class="req">*</span></label>-->
+            <div ng-controller="nodeProfileController">
+                <div>
                     <label>
-                        First Name: {{firstName}}<span class="req">*</span>
+                       Name:
                     </label>
-                    <input name='firstName' type="text" required autocomplete="off" ng-model="firstName" />
+                    <p> {{node.firstName}} {{node.lastName}} </p>
                 </div>
-                <div class="field-wrap">
-                    <!--<label>Birth State{{birthState}}<span class="req">*</span></label>-->
+                <div>
                     <label>
-                        Last Name: {{lastName}}<span class="req">*</span>
+                        Gender:
                     </label>
-                    <input name='lastName' type="text" required autocomplete="off" ng-model="lastName" />
+                    <p> {{node.gender}} </p>
+                </div>
+                <div>
+                    <label>
+                        Date of Birth:
+                    </label>
+                    <p> {{node.dateOfBirth}} </p>
+                </div>
+                <div>
+                    <label>
+                        Place of Birth:
+                    </label>
+                    <p> {{node.birthCity}}, {{node.birthState}} </p>
+                </div>
+
+                <div>
+                    <label>
+                        Bio:
+                    </label>
+                    <p> {{node.bio}}</p>
+                </div>
+
+            </div>
+
+             <!--   <div>
+                    <label>
+                        Date of Birth
+                    </label>
+                    <input name='lastName' value="{{dateOfBirth}}" type="text" required autocomplete="off" ng-model="lastName" />
                 </div>
 
                 <div class="field-wrap">
@@ -83,9 +111,9 @@
                         <option value="diffent">Prefer Different Label</option>
                         <option value="nodisclose">Prefer Not to Disclose</option>
                     </select>
-                </div>
+                </div>-->
 
-                <div class="field-wrap">
+               <!-- <div class="field-wrap">
                     <h2>Date of Birth</h2>
                     <label><span class="req"></span></label>
                     <input name='dateOfBirth' placeholder="mm/dd/yyyy" type="date" value={{dateOfBirth}} required autocomplete="off"/>
@@ -97,24 +125,24 @@
                 </div>
 
                 <div class="field-wrap">
-                    <!--<label>Birth State{{birthState}}<span class="req">*</span></label>-->
+                    &lt;!&ndash;<label>Birth State{{birthState}}<span class="req">*</span></label>&ndash;&gt;
                     <input name='birthState' type="text" maxlength="64" value="{{birthState}}" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
-                    <!--<label>Birth Country{{birthCountry}}<span class="req">*</span></label>-->
+                    &lt;!&ndash;<label>Birth Country{{birthCountry}}<span class="req">*</span></label>&ndash;&gt;
                     <input name='birthCountry' type="text" maxlength="128" value="{{birthCountry}}" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
-                    <!--<label>Current City<span class="req">*</span></label>-->
+                    &lt;!&ndash;<label>Current City<span class="req">*</span></label>&ndash;&gt;
                     <input name='currentCity' type="text" maxlength="64" value="{{currentCity}}" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
-                    <!--<label>Current State<span class="req">*</span></label>-->
+                    &lt;!&ndash;<label>Current State<span class="req">*</span></label>&ndash;&gt;
                     <input name='currentState' type="text" maxlength="64" value="{{currentState}}" required autocomplete="off" />
-                </div>
+                </div>-->
 
                 <script>
                     function counter(txtarea, l){
@@ -134,7 +162,7 @@
     </div>
     </div>
 
-
+<a href=""></a>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -142,9 +170,8 @@
 
     <!-- Bottom of the page Footer content-->
 
-            </ul>
-        </nav>
-    </footer>
+
+
 <script>
 
 //Here is the controller that will display information of the node profile
@@ -153,18 +180,20 @@
 //
         angular.module("treeViewer",[])
                 .controller("nodeProfileController",function($scope){
-                $scope.node = {}
-                $scope.node.firstName = "";
+                $scope.node = {};
+                $scope.node.firstName = "David";
                 $scope.node.middleName = "";
-                $scope.node.lastName = "";
+                $scope.node.lastName = "Swift";
                 $scope.node.father = "";
                 $scope.node.mother = "";
-                $scope.node.birth = "";
+                $scope.node.dateOfBirth = "02/13/1988";
                 $scope.node.death = "";
-                $scope.node.gender = "";
+                $scope.node.gender = "Dude";
                 $scope.node.birthLocation = "";
+                    $scope.node.birthCity = "Rochester";
+                    $scope.node.birthState = "New York";
                 $scope.node.deathLocation = "";
-                $scope.node.bio = "";
+                $scope.node.bio = "He lived and then he died.";
                 $scope.node.children = [""];
         });
 </script>
