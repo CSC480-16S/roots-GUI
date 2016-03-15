@@ -129,7 +129,16 @@
     </div>
 
     <div class="treeWindow">
-        <p>content</p>
+        <p>
+		<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">
+		<g>	
+		<rect ng-repeat="rect in node"
+			ng-attr-rx="{{rectangle.x}}"
+			ng-attr-ry="{{rectangle.y}}">
+		<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>
+		</rect>
+		</g>
+	</p>
 
     </div>
     </div>
@@ -145,29 +154,7 @@
             </ul>
         </nav>
     </footer>
-<script>
 
-//Here is the controller that will display information of the node profile
-// Node is assumed to be the node that is selected
-// NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
-//
-        angular.module("treeViewer",[])
-                .controller("nodeProfileController",function($scope){
-                $scope.node = {}
-                $scope.node.firstName = "";
-                $scope.node.middleName = "";
-                $scope.node.lastName = "";
-                $scope.node.father = "";
-                $scope.node.mother = "";
-                $scope.node.birth = "";
-                $scope.node.death = "";
-                $scope.node.gender = "";
-                $scope.node.birthLocation = "";
-                $scope.node.deathLocation = "";
-                $scope.node.bio = "";
-                $scope.node.children = [""];
-        });
-</script>
 
 <!--
 THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH IT WHAT YOU WILL
