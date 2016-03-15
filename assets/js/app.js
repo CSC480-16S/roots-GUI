@@ -38,5 +38,23 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
-
+         angular.module("treeViewer",[])
+                .controller("nodeProfileController",function($scope){
+                $scope.node = {}
+                $scope.node.firstName = "";
+                $scope.node.middleName = "";
+                $scope.node.lastName = "";
+                $scope.node.father = "";
+                $scope.node.mother = "";
+                $scope.node.birth = "";
+                $scope.node.death = "";
+                $scope.node.gender = "";
+                $scope.node.birthLocation = "";
+                $scope.node.deathLocation = "";
+                $scope.node.bio = "";
+                $scope.node.children = [""];
+                        
+        });
+   
+    
 }
