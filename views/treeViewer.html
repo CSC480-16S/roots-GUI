@@ -51,8 +51,8 @@
     <div class="sidebar">
         <div id="Profile Info">
 
-            <figure class="profile">
-                <img >
+            <figure class="profilePhoto">
+
             </figure>
             <form action="/updateProfile" method="post">
 
@@ -151,15 +151,19 @@
                     }
                 </script>
 
-                <button type="submit" class="button button-block" />Add Member!</button>
+                <input class="profileButton" type="image" src="../assets/images/AddIcon.png" alt="Add">
+                <input class="profileButton" type="image" src="../assets/images/EditIcon.png" alt="Edit">
+                <input class="profileButton" type="image" src="../assets/images/DeleteIcon.png" alt="Delete">
+
+
             </form>
         </div>
     </div>
 
-    <div class="treeWindow">
+ <!--   <div class="treeWindow">
         <p>content</p>
 
-    </div>
+    </div>-->
     </div>
 
 <a href=""></a>
@@ -181,19 +185,19 @@
         angular.module("treeViewer",[])
                 .controller("nodeProfileController",function($scope){
                 $scope.node = {};
-                $scope.node.firstName = "David";
+                $scope.node.firstName = "";
                 $scope.node.middleName = "";
-                $scope.node.lastName = "Swift";
+                $scope.node.lastName = "";
                 $scope.node.father = "";
                 $scope.node.mother = "";
-                $scope.node.dateOfBirth = "02/13/1988";
+                $scope.node.dateOfBirth = "";
                 $scope.node.death = "";
-                $scope.node.gender = "Dude";
+                $scope.node.gender = "";
                 $scope.node.birthLocation = "";
-                    $scope.node.birthCity = "Rochester";
-                    $scope.node.birthState = "New York";
+                $scope.node.birthCity = "";
+                $scope.node.birthState = "";
                 $scope.node.deathLocation = "";
-                $scope.node.bio = "He lived and then he died.";
+                $scope.node.bio = "";
                 $scope.node.children = [""];
         });
 </script>
