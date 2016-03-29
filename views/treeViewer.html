@@ -22,103 +22,99 @@
 
 
         <div class="dropdown">
-                <button onclick ="myFunction()"  class="hamburger hamburger--spring">
-                    <div class="hamburger-box">
-                     <div class="hamburger-inner"></div>
-                    </div>
-                </button>
-                <div class="dropdown-content" id="Dropdown">
-                    <a href="#">Log Out</a>
-                    <a href="mailto:rootsspammer@gmail.com">Contact Us</a>
-                    <a href="about.html">About</a>
-                </div>
+            <input class="hamburger" type="image" src="../assets/images/hamburger.png" onclick="myFunction()">
+             <div class="dropdown-content" id="Dropdown">
+                <a href="#">Log Out</a>
+                <a href="mailto:rootsspammer@gmail.com">Contact Us</a>
+                <a href="about.html">About</a>
+            </div>
         </div>
 
-            <script>
-                function myFunction() {
-                    document.getElementById("Dropdown").classList.toggle("show");
-                }
-                window.onclick = function(e) {
-                    if (!e.target.matches('.hamburger')) {
+              <script>
+                  function myFunction() {
+                      document.getElementById("Dropdown").classList.toggle("show");
+                  }
+                  window.onclick = function(e) {
+                      if (!e.target.matches('.hamburger')) {
 
-                        var dropdowns = document.getElementsByClassName("dropdown-content");
-                        for (var d = 0; d < dropdowns.length; d++) {
-                            var openDropdown = dropdowns[d];
-                            if (openDropdown.classList.contains('show')) {
-                                openDropdown.classList.remove('show');
-                            }
-                        }
-                    }
-                }
-            </script>
-    </header>
-
-
-<div class="window">
-    <div class="sidebar">
-        <div id="Profile Info">
-
-            <figure class="profilePhoto">
-
-            </figure>
-            <form action="/updateProfile" method="post">
+                          var dropdowns = document.getElementsByClassName("dropdown-content");
+                          for (var d = 0; d < dropdowns.length; d++) {
+                              var openDropdown = dropdowns[d];
+                              if (openDropdown.classList.contains('show')) {
+                                  openDropdown.classList.remove('show');
+                              }
+                          }
+                      }
+                  }
+              </script>
+      </header>
 
 
+  <div class="window">
+      <div class="sidebar">
+          <div id="Profile Info">
 
-            <div ng-controller="nodeProfileController">
-                <div>
-                    <label>
-                       Name:
-                    </label>
-                    <p> {{node.firstName}} {{node.lastName}} </p>
-                </div>
-                <div>
-                    <label>
-                        Gender:
-                    </label>
-                    <p> {{node.gender}} </p>
-                </div>
-                <div>
-                    <label>
-                        Date of Birth:
-                    </label>
-                    <p> {{node.dateOfBirth}} </p>
-                </div>
-                <div>
-                    <label>
-                        Place of Birth:
-                    </label>
-                    <p> {{node.birthCity}}, {{node.birthState}} </p>
-                </div>
+              <figure class="profilePhoto">
 
-                <div>
-                    <label>
-                        Bio:
-                    </label>
-                    <p> {{node.bio}}</p>
-                </div>
+              </figure>
+              <form action="/updateProfile" method="post">
 
-            </div>
 
-             <!--   <div>
-                    <label>
-                        Date of Birth
-                    </label>
-                    <input name='lastName' value="{{dateOfBirth}}" type="text" required autocomplete="off" ng-model="lastName" />
-                </div>
 
-                <div class="field-wrap">
-                    <label><span class="req"></span></label>
-                    <select name='gender' required>
-                        <option value="{{gender}}" disabled selected>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="trans">Transgender</option>
-                        <option value="none">Prefer No Label</option>
-                        <option value="diffent">Prefer Different Label</option>
-                        <option value="nodisclose">Prefer Not to Disclose</option>
-                    </select>
-                </div>-->
+              <div ng-controller="nodeProfileController">
+                  <div>
+                      <label>
+                         Name:
+                      </label>
+                      <p> {{node.firstName}} {{node.lastName}} </p>
+                  </div>
+                  <div>
+                      <label>
+                          Gender:
+                      </label>
+                      <p> {{node.gender}} </p>
+                  </div>
+                  <div>
+                      <label>
+                          Date of Birth:
+                      </label>
+                      <p> {{node.dateOfBirth}} </p>
+                  </div>
+                  <div>
+                      <label>
+                          Place of Birth:
+                      </label>
+                      <p> {{node.birthCity}}, {{node.birthState}} </p>
+                  </div>
+
+                  <div>
+                      <label>
+                          Bio:
+                      </label>
+                      <p> {{node.bio}}</p>
+                  </div>
+
+              </div>
+
+               <!--   <div>
+                      <label>
+                          Date of Birth
+                      </label>
+                      <input name='lastName' value="{{dateOfBirth}}" type="text" required autocomplete="off" ng-model="lastName" />
+                  </div>
+
+                  <div class="field-wrap">
+                      <label><span class="req"></span></label>
+                      <select name='gender' required>
+                          <option value="{{gender}}" disabled selected>Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="trans">Transgender</option>
+                          <option value="none">Prefer No Label</option>
+                          <option value="diffent">Prefer Different Label</option>
+                          <option value="nodisclose">Prefer Not to Disclose</option>
+                      </select>
+                  </div>-->
 
 
 
@@ -219,28 +215,7 @@
         });
 </script>
 
-<!--
-THIS IS THE CODE THAT DISPLAYS THE FUCKING INFORMATION IN THE SIDE BAR. DO WITH IT WHAT YOU WILL
 
-<div ng-app="treeViewer">
-        <div ng-controller="nodeProfileController">
-                <div class="nodeProfileDisplay">
-                <p>{{node.firstName}} {{node.middleName}} {{node.lastName}}</p>
-                <p>{{node.gender}}</p>
-                <p>Born: {{node.birth}} Died: {{node.death}}</p>
-                <p>Born in: {{node.birthLocation}}</p>
-                <p>Died in: {{node.DeathLocation}}</p>
-                <p>Father: {{node.father}}</p>
-                <p>Mother: {{node.mother}}</p>
-                <p>Children: <div ng-repeat="node.children">{{node.children}}</div>
-                <p>Biography: {{node.bio}}</p>
-                </div>
-        </div>
-
-</div>
-
-
--->
 
 
 
