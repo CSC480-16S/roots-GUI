@@ -165,6 +165,19 @@
         </div>
     </div>
 
+      <div class="tree_node"  ng-controller="nodeProfileController">
+              <img class="" src="../assets/images/AddIcon.png">
+          <p> {{node.firstName}} {{node.lastName}} </p>
+          <p> {{node.dateOfBirth}} </p>
+          <p> {{node.birthCity}}, {{node.birthState}} </p>
+
+      </div>
+
+    <div id="map_toggle">
+        <a href="login.html" class="">
+            <img class="map_img" src="../assets/images/AddIcon.png">
+        </a>
+    </div>
     <!--<div class="treeWindow">-->
         <!--<p>-->
 		<!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
@@ -198,19 +211,19 @@
         angular.module("treeViewer",[])
                 .controller("nodeProfileController",function($scope){
                 $scope.node = {};
-                $scope.node.firstName = "David";
+                $scope.node.firstName = "";
                 $scope.node.middleName = "";
-                $scope.node.lastName = "Swift";
+                $scope.node.lastName = "";
                 $scope.node.father = "";
                 $scope.node.mother = "";
-                $scope.node.dateOfBirth = "02/13/1988";
+                $scope.node.dateOfBirth = "";
                 $scope.node.death = "";
-                $scope.node.gender = "Dude";
+                $scope.node.gender = "";
                 $scope.node.birthLocation = "";
-                $scope.node.birthCity = "Rochester";
-                $scope.node.birthState = "New York";
+                $scope.node.birthCity = "";
+                $scope.node.birthState = "";
                 $scope.node.deathLocation = "";
-                $scope.node.bio = "He lived and then he died.";
+                $scope.node.bio = "";
                 $scope.node.children = [""];
         });
 </script>
