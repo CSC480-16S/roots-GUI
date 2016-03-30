@@ -6,172 +6,141 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/treeStyles.css">
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../assets/js/lodash.min.js"></script>
+    <script src="../assets/js/dTree.min.js"></script>
+
+    <style>
+        .linage {
+            fill: none;
+            stroke: black;
+        }
+
+        .marriage {
+            fill: none;
+            stroke: black;
+        }
+
+        .node {
+            background-color: lightblue;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .nodeText {
+            font: 10px sans-serif;
+        }
+    </style>
+
 </head>
 
 <body>
-    <header>
-            <a href="login.html" class="header-logo">
-                <img id="logo-img" src="../assets/images/logo.png">
-            </a>
+<header>
+    <a href="login.html" class="header-logo">
+        <img id="logo-img" src="../assets/images/logo.png">
+    </a>
 
-           <div class="search">
-            <form>
-                <input type="search" name="treeSearch" placeholder="Search..." value={{treeSearch}}>
-            </form>
-            </div>
+    <div class="search">
+        <form>
+            <input type="search" name="treeSearch" placeholder="Search..." value={{treeSearch}}>
+        </form>
+    </div>
 
 
-        <div class="dropdown">
-            <input class="hamburger" type="image" src="../assets/images/hamburger.png" onclick="myFunction()">
-             <div class="dropdown-content" id="Dropdown">
-                <a href="#">Log Out</a>
-                <a href="mailto:rootsspammer@gmail.com">Contact Us</a>
-                <a href="about.html">About</a>
-            </div>
+    <div class="dropdown">
+        <input class="hamburger" type="image" src="../assets/images/hamburger.png" onclick="myFunction()">
+        <div class="dropdown-content" id="Dropdown">
+            <a href="#">Log Out</a>
+            <a href="mailto:rootsspammer@gmail.com">Contact Us</a>
+            <a href="about.html">About</a>
         </div>
+    </div>
 
-              <script>
-                  function myFunction() {
-                      document.getElementById("Dropdown").classList.toggle("show");
-                  }
-                  window.onclick = function(e) {
-                      if (!e.target.matches('.hamburger')) {
+    <script>
+        function myFunction() {
+            document.getElementById("Dropdown").classList.toggle("show");
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.hamburger')) {
 
-                          var dropdowns = document.getElementsByClassName("dropdown-content");
-                          for (var d = 0; d < dropdowns.length; d++) {
-                              var openDropdown = dropdowns[d];
-                              if (openDropdown.classList.contains('show')) {
-                                  openDropdown.classList.remove('show');
-                              }
-                          }
-                      }
-                  }
-              </script>
-      </header>
-
-
-  <div class="window">
-      <div class="sidebar">
-          <div id="Profile Info">
-
-              <figure class="profilePhoto">
-
-              </figure>
-              <form action="/updateProfile" method="post">
-
-
-
-              <div ng-controller="nodeProfileController">
-                  <div>
-                      <label>
-                         Name:
-                      </label>
-                      <p> {{node.firstName}} {{node.lastName}} </p>
-                  </div>
-                  <div>
-                      <label>
-                          Gender:
-                      </label>
-                      <p> {{node.gender}} </p>
-                  </div>
-                  <div>
-                      <label>
-                          Date of Birth:
-                      </label>
-                      <p> {{node.dateOfBirth}} </p>
-                  </div>
-                  <div>
-                      <label>
-                          Place of Birth:
-                      </label>
-                      <p> {{node.birthCity}}, {{node.birthState}} </p>
-                  </div>
-
-                  <div>
-                      <label>
-                          Bio:
-                      </label>
-                      <p> {{node.bio}}</p>
-                  </div>
-
-              </div>
-
-               <!--   <div>
-                      <label>
-                          Date of Birth
-                      </label>
-                      <input name='lastName' value="{{dateOfBirth}}" type="text" required autocomplete="off" ng-model="lastName" />
-                  </div>
-
-                  <div class="field-wrap">
-                      <label><span class="req"></span></label>
-                      <select name='gender' required>
-                          <option value="{{gender}}" disabled selected>Gender</option>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="trans">Transgender</option>
-                          <option value="none">Prefer No Label</option>
-                          <option value="diffent">Prefer Different Label</option>
-                          <option value="nodisclose">Prefer Not to Disclose</option>
-                      </select>
-                  </div>-->
-
-
-
-               <!-- <div class="field-wrap">
-                    <h2>Date of Birth</h2>
-                    <label><span class="req"></span></label>
-                    <input name='dateOfBirth' placeholder="mm/dd/yyyy" type="date" value={{dateOfBirth}} required autocomplete="off"/>
-                </div>
-
-                <div class="field-wrap">
-                    <label>Birth City {{birthCity}}<span class="req">*</span></label>
-                    <input name='birthCity' type="text" maxlength="64" value="{{birthCity}}" required autocomplete="off" ng-model="birthCity" />
-                </div>
-
-                <div class="field-wrap">
-                    &lt;!&ndash;<label>Birth State{{birthState}}<span class="req">*</span></label>&ndash;&gt;
-                    <input name='birthState' type="text" maxlength="64" value="{{birthState}}" required autocomplete="off" />
-                </div>
-
-                <div class="field-wrap">
-                    &lt;!&ndash;<label>Birth Country{{birthCountry}}<span class="req">*</span></label>&ndash;&gt;
-                    <input name='birthCountry' type="text" maxlength="128" value="{{birthCountry}}" required autocomplete="off" />
-                </div>
-
-                <div class="field-wrap">
-                    &lt;!&ndash;<label>Current City<span class="req">*</span></label>&ndash;&gt;
-                    <input name='currentCity' type="text" maxlength="64" value="{{currentCity}}" required autocomplete="off" />
-                </div>
-
-                <div class="field-wrap">
-                    &lt;!&ndash;<label>Current State<span class="req">*</span></label>&ndash;&gt;
-                    <input name='currentState' type="text" maxlength="64" value="{{currentState}}" required autocomplete="off" />
-                </div>-->
-
-                <script>
-                    function counter(txtarea, l){
-                        var len = $(txtarea).val().length;
-                        if (len <= l) $('#num').text((l - len) + ' characters remaining');
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var d = 0; d < dropdowns.length; d++) {
+                    var openDropdown = dropdowns[d];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
                     }
-                </script>
+                }
+            }
+        }
+    </script>
+</header>
+
+
+<div class="window">
+    <div class="sidebar">
+        <div id="Profile Info">
+
+            <figure class="profilePhoto">
+
+            </figure>
+
+            <form action="/updateProfile" method="post">
+
+                <div ng-controller="nodeProfileController">
+
+                    <div>
+                        <label>
+                            Name:
+                        </label>
+                        <p> {{node.firstName}} {{node.lastName}} </p>
+                    </div>
+                    <div>
+                        <label>
+                            Gender:
+                        </label>
+                        <p> {{node.gender}} </p>
+                    </div>
+                    <div>
+                        <label>
+                            Date of Birth:
+                        </label>
+                        <p> {{node.dateOfBirth}} </p>
+                    </div>
+                    <div>
+                        <label>
+                            Place of Birth:
+                        </label>
+                        <p> {{node.birthCity}}, {{node.birthState}}, {{birthCountry}} </p>
+                    </div>
+                    <div>
+                        <label>
+                            Bio:
+                        </label>
+                        <p> {{node.bio}}</p>
+                    </div>
+
+                </div>
 
                 <input class="profileButton" type="image" src="../assets/images/AddIcon.png" alt="Add">
                 <input class="profileButton" type="image" src="../assets/images/EditIcon.png" alt="Edit">
                 <input class="profileButton" type="image" src="../assets/images/DeleteIcon.png" alt="Delete">
 
-
             </form>
         </div>
     </div>
 
-      <div class="tree_node"  ng-controller="nodeProfileController">
-              <img class="" src="../assets/images/AddIcon.png">
-          <p> {{node.firstName}} {{node.lastName}} </p>
-          <p> {{node.dateOfBirth}} </p>
-          <p> {{node.birthCity}}, {{node.birthState}} </p>
+    <div class="tree_node" ng-controller="nodeProfileController">
+        <img class="" src="../assets/images/AddIcon.png">
+        <p> {{node.firstName}} {{node.lastName}} </p>
+        <p> {{node.dateOfBirth}} {{node.death}} </p>
+    </div>
 
-      </div>
+    <div id="graph"></div>
+    <script>
+        treeJson = d3.json("data.json", function (error, treeData) {
+            dTree.init(treeData, {});
+        });
+    </script>
 
     <div id="map_toggle">
         <a href="login.html" class="">
@@ -179,59 +148,55 @@
         </a>
     </div>
     <!--<div class="treeWindow">-->
-        <!--<p>-->
-		<!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
-		<!--<g>-->
-		<!--<rect ng-repeat="rect in node"-->
-			<!--ng-attr-rx="{{rectangle.x}}"-->
-			<!--ng-attr-ry="{{rectangle.y}}">-->
-		<!--<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>-->
-		<!--</rect>-->
-		<!--</g>-->
-	<!--</p>-->
+    <!--<p>-->
+    <!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
+    <!--<g>-->
+    <!--<rect ng-repeat="rect in node"-->
+    <!--ng-attr-rx="{{rectangle.x}}"-->
+    <!--ng-attr-ry="{{rectangle.y}}">-->
+    <!--<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>-->
+    <!--</rect>-->
+    <!--</g>-->
+    <!--</p>-->
     <!--</div>-->
-    </div>
+</div>
 
-<a href=""></a>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../assets/js/login.js"></script>
-
-    <!-- Bottom of the page Footer content-->
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../assets/js/login.js"></script>
 
 <script>
 
-//Here is the controller that will display information of the node profile
-// Node is assumed to be the node that is selected
-// NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
-//
-        angular.module("treeViewer",[])
-                .controller("nodeProfileController",function($scope){
-                $scope.node = {};
-                $scope.node.firstName = "";
-                $scope.node.middleName = "";
-                $scope.node.lastName = "";
-                $scope.node.father = "";
-                $scope.node.mother = "";
-                $scope.node.dateOfBirth = "";
-                $scope.node.death = "";
-                $scope.node.gender = "";
-                $scope.node.birthLocation = "";
-                $scope.node.birthCity = "";
-                $scope.node.birthState = "";
-                $scope.node.deathLocation = "";
-                $scope.node.bio = "";
-                $scope.node.children = [""];
+    //Here is the controller that will display information of the node profile
+    // Node is assumed to be the node that is selected
+    // NODE IS A PLACEHOLDER, CHANGE TO THE VALUE NEEDED WITHIN THE MODULE FOR THE APP
+    //
+    var app = angular.module("treeViewer", []);
+    app.controller("nodeProfileController", function ($scope) {
+        $scope.node = {};
+        $scope.node.firstName = "David";
+        $scope.node.middleName = "";
+        $scope.node.lastName = "Swift";
+        $scope.node.father = "";
+        $scope.node.mother = "";
+        $scope.node.dateOfBirth = "02/13/1988";
+        $scope.node.death = "02/13/2088";
+        $scope.node.gender = "Dude";
+        $scope.node.birthLocation = "";
+        $scope.node.birthCity = "Rochester";
+        $scope.node.birthState = "New York";
+        $scope.node.deathLocation = "";
+        $scope.node.bio = "He lived and then he died.";
+        $scope.node.children = [""];
+    });
+
+    app.controller('nodeTreeController', function ($scope, $http) {
+        $http.get("/populateTree").then(function (response) {
+            $scope.node = response.data.user;
         });
+    });
+
 </script>
-
-
-
-
-
 
 </body>
 </html>
