@@ -56,4 +56,4 @@ treeViewer.controller("mainController", function($scope, $http){
         $scope.node.bio = "He lived and then he died.";
         $scope.node.children = [""];
     });
-}
+});
