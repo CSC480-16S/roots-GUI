@@ -144,12 +144,31 @@
     </div>
 -->
 
-    <div id="graph"></div>
+    <div id="graph" onclick="getID()"></div>
     <script>
+        //will set the width and height of the container to be 70% and 50% respectively of the viewport.
+        var viewPortWidth = (Math.max(document.documentElement.clientWidth, window.innerWidth || 0)-275)*.7;
+        var wiewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)*.5;
+
         treeJson = d3.json("data.json", function (error, treeData) {
-            dTree.init(treeData, {});
+            dTree.init(treeData, {
+                        width: viewPortWidth,
+                        height: wiewPortHeight
+                    }
+            );
         });
     </script>
+
+
+
+    <p id="demodemo"></p>
+    <script>
+        function getID() {
+            var x = document.activeElement.tagName;
+            document.getElementById("demodemo").innerHTML = x;
+        }
+    </script>
+
 
     <div id="map_toggle">
         <a href="map.html">
@@ -160,18 +179,6 @@
         </a>
 
     </div>
-    <!--<div class="treeWindow">-->
-    <!--<p>-->
-    <!--<svg ng-attr-height="{{graph.height}}" ng-attr-widgth={{graph.width}}">-->
-    <!--<g>-->
-    <!--<rect ng-repeat="rect in node"-->
-    <!--ng-attr-rx="{{rectangle.x}}"-->
-    <!--ng-attr-ry="{{rectangle.y}}">-->
-    <!--<text>{{node.firstName}} {{node.middleName}} {{node.lastName}}</text>-->
-    <!--</rect>-->
-    <!--</g>-->
-    <!--</p>-->
-    <!--</div>-->
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
