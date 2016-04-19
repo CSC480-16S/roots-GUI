@@ -11,25 +11,35 @@
     <script src="../assets/js/dTree.min.js"></script>
 
     <style>
+        svg {
+            font: 10px sans-serif;
+        }
         .linage {
             fill: none;
-            stroke: black;
+            stroke: #000;
         }
-
         .marriage {
             fill: none;
             stroke: black;
         }
-
-        .node {
+        .man {
             background-color: lightblue;
             border-style: solid;
             border-width: 1px;
         }
-
-        .nodeText {
-            font: 10px sans-serif;
+        .woman {
+            background-color: pink;
+            border-style: solid;
+            border-width: 1px;
         }
+        .emphasis{
+            font-style: italic;
+        }
+        p {
+            padding:0;
+            margin:0;
+        }
+
     </style>
 
 </head>
@@ -126,11 +136,13 @@
         </div>
     </div>
 
+<!--
     <div class="tree_node" ng-controller="nodeProfileController">
         <img class="" src="../assets/images/AddIcon.png">
         <p> {{node.firstName}} {{node.lastName}} </p>
         <p> {{node.dateOfBirth}} {{node.death}} </p>
     </div>
+-->
 
     <div id="graph"></div>
     <script>

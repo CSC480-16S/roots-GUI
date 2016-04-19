@@ -55,86 +55,33 @@
 </header>
 
 
-<div class="aboutform">
+<div class="aboutform" ng-controller="accountInfoController">
     <div id="Profile Info">
 
 
-        <h1>Harry Potter</h1> <!-- populate with name -->
+        <h1>{{node.first_name}} {{node.last_name}}</h1> <!-- populate with name -->
+
         <div class="content">
             <div class="leftForm">
-
                 <div class="profileoptions">
-                    <img src="../assets/images/HERRY.png">
+                    <img ng-src="http://myroots.xyz/images/{{node.image}}" alt="Profile Image" />
                     <button> Edit Profile</button>
                 </div>
-
-
             </div>
 
-
             <div class="rightForm">
-
                 <div class="field-wrap-temp">
-                    <p>Place of Birth: {{birthcity}}Godric's Hollow</p>
-                </div>
-                <div class="field-wrap-temp">
-                    <p>Country of Birth: {{birthcountry}} England</p>
+                    <p>Place of Birth: {{node.municipality_of_birth}}, {{node.state_of_birth}} </p>
                 </div>
                 <div class="field-wrap-temp">
-                    <p>Date of Birth: {{birthday}} July 31, 1980</p>
+                    <p>Country of Birth: {{node.country_of_birth}}</p>
                 </div>
                 <div class="field-wrap-temp">
-                    <p>Bio: {{Bio}} You're a Wizard Harry</p>
+                    <p>Date of Birth: {{node.date_of_birth}}</p>
                 </div>
-                <div class="newAccountInfo">
-                    <label><span class="req"></span></label>
-                    <input name='birthCity' type="text" maxlength="64" required autocomplete="off" value="{{birthcity}}"
-                           placeholder="Birth City"/>
+                <div class="field-wrap-temp">
+                    <p>Bio: {{node.bio}}</p>
                 </div>
-
-                <div class="newAccountInfo">
-                    <label><span class="req"></span></label>
-                    <input name='birthCity' type="text" maxlength="64" required autocomplete="off" value="{{birthday}}"
-                           placeholder="Birth Country"/>
-                </div>
-                <div class="newAccountInfo">
-                    <label><span class="req"></span></label>
-                    <input name='birthCity' type="text" maxlength="64" required autocomplete="off" value="{{birthday}}"
-                           placeholder="Birthday"/>
-                </div>
-                <div class="newAccountInfo">
-                    <textarea id="personalbio" onkeyup="counter(this, this.maxLength)" maxlength="5000" class="textareaclass" rows="4" value="{{bio}}"
-                              placeholder="Bio"></textarea>
-                    <div align="right" id="num">5000 characters remaining</div>
-                </div>
-
-                <script>
-                    function counter(txtarea, l){
-                        var len = $(txtarea).val().length;
-                        if (len <= l) $('#num').text((l - len) + ' characters remaining');
-                    }
-                </script>
-
-                <!--                        <table>
-                                            <tr>
-                                                <td>Date of Birth:</td>
-                                                <td>{{birthday}} July 31, 1980</td> &lt;!&ndash; populate birthday &ndash;&gt;
-                                            </tr>
-                                            <tr>
-                                                <td>City of Birth:</td>
-                                                <td>{{birthcity}}Godric's Hollow</td> &lt;!&ndash; populate city &ndash;&gt;
-                                            </tr>
-                                            <tr>
-                                                <td>Country of Birth:</td>
-                                                <td>{{birthcountry}}England</td> &lt;!&ndash; populate country &ndash;&gt;
-                                            </tr>
-                                            <tr>
-                                                <td>Bio:</td>
-                                                <td>{{bio}}You're a Wizard Harry</td> &lt;!&ndash; populate bio &ndash;&gt;
-                                            </tr>
-                                        </table>-->
-
-
             </div>
         </div>
     </div>
@@ -143,6 +90,17 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../assets/js/login.js"></script>
 
+<script>
+
+    // Here is the controller that will display information of the account
+    // Node is assumed to be the user
+    var app = angular.module("accountInfo",[]);
+    app.controller('accountInfoController',function($scope, $http){
+        $http.get("/getProfileInfo").then(function (response){
+            $scope.node = response.data.user;
+        });
+    });
+</script>
 
 </body>
 </html>
