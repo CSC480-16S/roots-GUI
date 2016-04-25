@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Tree Viewer</title>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500italic,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/treeStyles.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -50,16 +51,15 @@
         <img id="logo-img" src="../assets/images/logo.png">
     </a>
 
-
-
-
     <div class="dropdown">
         <input class="hamburger" type="image" src="../assets/images/hamburger.png" onclick="myFunction()">
         <div class="dropdown-content" id="Dropdown">
-            <a href="map.html">Roots World Map</a>
-            <a href="#">Log Out</a>
+            <a href="/treeViewer">Family Tree</a>
+            <a href="map.html">Ancestory Distribution</a>
+            <a href="/acountInfo">Account Info</a>
             <a href="mailto:rootsspammer@gmail.com">Contact Us</a>
-            <a href="about.html">About</a>
+            <a href="/about">About</a>
+            <a href="/logout">Log Out</a>
         </div>
     </div>
 
@@ -82,8 +82,7 @@
     </script>
 </header>
 
-
-<div class="window">
+<div class="window" ng-controller="nodeProfileController">
     <div class="sidebar">
         <div id="Profile Info">
 
@@ -92,46 +91,40 @@
             </figure>
 
             <form action="/updateProfile" method="post">
-
-                <div ng-controller="nodeProfileController">
-
+                <div>
                     <div>
-                        <label>
-                            Name:
-                        </label>
-                        <p> {{node.firstName}} {{node.lastName}} </p>
+                        <label>Name: </label>
+                        <p> {{node.first_name}} {{node.last_name}} </p>
                     </div>
                     <div>
-                        <label>
-                            Gender:
-                        </label>
+                        <label>Gender: </label>
                         <p> {{node.gender}} </p>
                     </div>
                     <div>
-                        <label>
-                            Date of Birth:
-                        </label>
-                        <p> {{node.dateOfBirth}} </p>
+                        <label>Date of Birth: </label>
+                        <p> {{node.date_of_birth}} </p>
+                    </div>
+                    <div ng-hide="node.date_of_death == null">
+                        <label>Date of Death: </label>
+                        <p> {{node.date_of_death}} </p>
                     </div>
                     <div>
-                        <label>
-                            Place of Birth:
-                        </label>
-                        <p> {{node.birthCity}}, {{node.birthState}}, {{birthCountry}} </p>
+                        <label>Place of Birth: </label>
+                        <p> {{node.municipality_of_birth}}, {{node.state_of_birth}}, {{node.birthCountry}} </p>
+                    </div>
+                    <div ng-hide="node.country_of_death == null">
+                        <label>Place of Death: </label>
+                        <p> {{node.municipality_of_death}}, {{node.state_of_death}}, {{node.country_of_death}} </p>
                     </div>
                     <div>
-                        <label>
-                            Bio:
-                        </label>
+                        <label>Bio: </label>
                         <p> {{node.bio}}</p>
                     </div>
-
                 </div>
 
                 <input class="profileButton" type="image" src="../assets/images/AddIcon.png" alt="Add">
                 <input class="profileButton" type="image" src="../assets/images/EditIcon.png" alt="Edit">
                 <input class="profileButton" type="image" src="../assets/images/DeleteIcon.png" alt="Delete">
-
             </form>
         </div>
     </div>
@@ -144,7 +137,8 @@
     </div>
 -->
 
-    <div id="graph" onclick="getID()"></div>
+<!--     <div id="graph" onclick="getID()"></div>-->
+    <div id="graph"></div>
     <script>
         //will set the width and height of the container to be 70% and 50% respectively of the viewport.
         var viewPortWidth = (Math.max(document.documentElement.clientWidth, window.innerWidth || 0)-275)*.7;
@@ -174,7 +168,6 @@
         <a href="login.html">
             <img class="map_img" src="../assets/images/parliamenticon.png" >
         </a>
-
     </div>
 </div>
 
