@@ -1,5 +1,8 @@
 [{
   "name": "Niclas Superlongsurname",
+  "extra": {
+     "coolData": "coolData!!!"
+  },
   "class": "man",
   "textClass": "emphasis",
   "marriages": [{
